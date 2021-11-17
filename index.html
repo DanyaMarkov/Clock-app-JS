@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" href="img/clock.ico" type="image/x-icon">
+
+    <title>Clock app</title>
+</head>
+
+<div class="intro">
+    <div class="video">
+        <video class="video__media" src="video/day.mp4" autoplay muted loop></video>
+    </div>
+
+    <div class="intro__content">
+        <body>
+            <header class="header">
+                <div class="header__body container">
+                    <div class="header__showFunctions">
+                        <h1> ᅠ</h1>
+                    </div>
+        
+                    <div class="header__functions">
+        
+                        <div class="header__row">
+                            <div class="header__clock headerEl activeTab">
+                                <img src="img/clock.png" alt="" srcset="">
+                                <p>Часы</p>
+                            </div>
+                            <div class="header__stopwatch headerEl">
+                                <img src="img/sec.png" alt="" srcset="">
+                                <p>Секундомер</p>
+                            </div>
+                            <div class="header__timer headerEl">
+                                <img src="img/timer.png" alt="" srcset="">
+                                <p>Таймер</p>
+                            </div>
+                        </div>
+     
+                    </div>
+                
+                </div>
+            </header>
+        
+            <div class="main">
+                <div class="main__body container ">
+                    <div class="main__clock">
+                        <span id="clock"></span>
+                        <span id="dayOfWeek"></span>
+
+                        <div id="date">
+         
+                            <span class="month"></span>
+                            <span class="year"></span>
+                        </div>
+                    </div>
+
+                    <div class="main__stopwatch hiden">
+                        <span id="stopwatch">Я секундомер</span>
+                    </div>
+
+                    <div class="main__timer hiden">
+                        <span id="timer">А я ТАЙМЕР!</span>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="footer__body container">
+                    <div class="footer__showFunctions">
+                        <h1>  </h1>
+                    </div>
+        
+                    <div class="footer__functions">
+        
+                        <div class="footer__row">
+                            <div class="footer__clock footerEl">
+                                <p>Ночная тема</p>
+                                <img src="img/clock.png" alt="" srcset="">
+                            </div>
+                            <div class="footer__timer footerEl">
+                                <p>Спорт</p>
+                                <img src="img/timer.png" alt="" srcset="">
+                            </div>
+                            <div class="footer__stopwatch footerEl">
+                                <p>Аниме</p>
+                                <img src="img/timer.png" alt="" srcset="">
+                            </div>
+                        </div>
+     
+                    </div>
+                
+                </div>
+            </footer>
+        
+        </body>
+    </div>
+</div>
+
+   
+
+<script src="js/script.js"></script>
+
+</html>
