@@ -1,6 +1,7 @@
 window.onload = function () {
     clockTimer()
-    setTimeout("clockTimer()", 1000);
+    //stopWatch()
+    //setTimeout("clockTimer()", 1000);
 }
 
 
@@ -10,7 +11,7 @@ function setBackground(currentHour) {
 
     let video = document.querySelector('.video__media');
 
-    if (currentHour >= 1 && currentHour <= 5) {
+    if (currentHour >= 0 && currentHour <= 5) {
         video.setAttribute("src", "video/" + "sleep.mp4");
     }
     if (currentHour >= 6 && currentHour <= 11) {
@@ -33,19 +34,19 @@ function setBackground(currentHour) {
 
 var curTime = -1;
 function clockTimer() {
-    var date = new Date();
+    let date = new Date();
 
-    var time = [date.getHours(), date.getMinutes(), date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
-    var dayOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
-    var days = date.getDay();
+    let time = [date.getHours(), date.getMinutes(), date.getSeconds()]; // |[0] = Hours| |[1] = Minutes| |[2] = Seconds|
+    let dayOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+    let days = date.getDay();
 
     if (time[0] < 10) { time[0] = "0" + time[0]; }
     if (time[1] < 10) { time[1] = "0" + time[1]; }
     if (time[2] < 10) { time[2] = "0" + time[2]; }
 
-    var current_time = [time[0], time[1], time[2]].join(':');
-    var clock = document.getElementById("clock");
-    var day = document.getElementById("dayOfWeek");
+    let current_time = [time[0], time[1], time[2]].join(':');
+    let clock = document.getElementById("clock");
+    let day = document.getElementById("dayOfWeek");
 
     clock.innerHTML = current_time;
     day.innerHTML = dayOfWeek[days];
@@ -82,6 +83,65 @@ function clockTimer() {
     year.innerHTML = date.getFullYear() + " года";
 
 }
+
+
+var minutes = 0;
+var seconds = 0;
+var milliseconds = 0;
+
+function tickStopWatch(status) {
+
+    if (status == "play") {
+        milliseconds += 100;
+        if (milliseconds == 1000) {
+            milliseconds = 0;
+
+            seconds++;
+            if (seconds == 60) {
+                seconds = 0;
+                minutes++;
+            }
+        }
+
+        let time = [minutes, seconds, milliseconds];
+
+        if (milliseconds == 0) {
+            var current_watchtime = [time[0], time[1], "000"].join(':');
+        } else {
+            var current_watchtime = [time[0], time[1], time[2]].join(':');
+        }
+
+        let stopWatch = document.getElementById("stopwatch");
+        stopWatch.innerHTML = current_watchtime;
+
+        setTimeout("tickStopWatch('play')", 100);
+    }
+    else if (status == "pause") {
+
+    }
+}
+
+
+document.getElementById('start-stop').addEventListener('click', modeStopWatch);
+
+var curMode = "play";
+function modeStopWatch() {
+
+
+    if (curMode == "play") {
+        document.getElementById('flag-reset').className = "";
+
+        tickStopWatch("play");
+        curMode = "pause";
+        //setTimeout(tickStopWatch("play"), 100);
+    }
+    else if (curMode == "pause") {
+        tickStopWatch("pause");
+        curMode = "play";
+    }
+
+}
+
 
 
 
