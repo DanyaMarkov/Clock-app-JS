@@ -114,30 +114,52 @@ function tickStopWatch(status) {
         let stopWatch = document.getElementById("stopwatch");
         stopWatch.innerHTML = current_watchtime;
 
-        setTimeout("tickStopWatch('play')", 100);
+        setTimeout("modeStopWatch('')", 100);
     }
     else if (status == "pause") {
 
     }
 }
 
+//TODO починить нижнюю СТРОКУ!
+document.getElementById('start-stop').addEventListener('click', modeStopWatch("1"));
 
-document.getElementById('start-stop').addEventListener('click', modeStopWatch);
+var curMode = "pause";
+function modeStopWatch(change) {
+    //console.log("Вызвал")
 
-var curMode = "play";
-function modeStopWatch() {
+    if (change != "") {
+
+        if (curMode == "pause") {
+            curMode = "play";
+            //console.log("Смена на PLAY")
+        }
+        else if (curMode == "play") {
+            curMode = "pause";
+            //console.log("Смена на PAUSE")
+        }
+    }
+
 
 
     if (curMode == "play") {
         document.getElementById('flag-reset').className = "";
 
+        let a = document.getElementById("start-stop");
+        a.src = a.src.replace("img/play.png", "img/pause.png");
+
         tickStopWatch("play");
-        curMode = "pause";
+
         //setTimeout(tickStopWatch("play"), 100);
     }
     else if (curMode == "pause") {
+        console.log("ПАУЗА ЖЕ!")
+
+        let a = document.getElementById("start-stop");
+        a.src = a.src.replace("img/pause.png", "img/play.png");
+
         tickStopWatch("pause");
-        curMode = "play";
+
     }
 
 }
