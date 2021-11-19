@@ -167,6 +167,7 @@ function modeStopWatch(change) {
 
 
 var curFunc = "";
+var numOfLine = 1;
 document.getElementById('flag-reset').addEventListener('click', setFlag);
 
 function setFlag() {
@@ -179,48 +180,35 @@ function setFlag() {
         minutes = 0;
         seconds = 0;
         milliseconds = 0;
+
+        let stopWatch = document.getElementById("stopwatch");
+        stopWatch.innerHTML = "00:00:00";
+
         tickStopWatch("pause");
+
+        numOfLine = 1;
+        document.querySelector('.flags').className = "flags hiden";
+        let line = document.querySelector('.flags');
+        line.innerHTML = "";
+
     }
     else if (curFunc == "flag") {
         document.querySelector('.flags').className = "flags";
         let time = [minutes, seconds, milliseconds];
-
-        let lineFlags = [time[0], time[1], time[2]].join(':');
-        //let lineFlags =
-
-
-        // var logElem = document.querySelector(".flags");
-        //logElem.innerHTML += timeStr
-
+        let lineFlags;
+        if (time[2] == 0) {
+            lineFlags = [time[0], time[1], "000"].join(':');
+        } else {
+            lineFlags = [time[0], time[1], time[2]].join(':');
+        }
 
         let line = document.querySelector('.flags');
-        line.innerHTML += lineFlags;
+        line.innerHTML += numOfLine + ". " + lineFlags + "<br>";
+        numOfLine++;
     }
-
-
-    // var images = document.getElementsByTagName('img');
-    // if (images.getAttribute('src') === 'flag.png') {
-    //     alert("флажок")
-    // }
 }
 
-// document.querySelector('.headerEl').addEventListener('click', chooseTab);
-
-// function chooseTab() {
-
-//     alert(this.innerHTML)
-//     if (this.innerHTML.span == "Часы") {
-//         alert("ДАДА")
-//     }
-//     //document.querySelector('.header__clock').className = 'header__clock headerEl activeTab';
-//     // document.querySelector('.header__stopwatch ').className = 'header__stopwatch headerEl';
-//     //document.querySelector('.header__timer').className = 'header__timer headerEl';
-//     //alert(this);
-
-// }
-
-
-
+// TO DO - ИСПРАВИТЬ кошмар СНИЗУ
 document.querySelector('.header__clock').addEventListener('click', chooseClock);
 
 function chooseClock() {
@@ -271,6 +259,5 @@ function changeVideo() {
     let video = document.querySelector('.video__media');
     video.setAttribute("src", "video/" + "night.mp4");
 }
-//element.setAttribute(name, value);
 
 
