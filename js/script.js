@@ -126,8 +126,6 @@ document.getElementById('start-stop').addEventListener('click', modeStopWatch("1
 
 var curMode = "pause";
 function modeStopWatch(change) {
-    //console.log("Вызвал")
-
     if (change != "") {
 
         if (curMode == "pause") {
@@ -140,23 +138,26 @@ function modeStopWatch(change) {
         }
     }
 
-
-
     if (curMode == "play") {
         document.getElementById('flag-reset').className = "";
 
-        let a = document.getElementById("start-stop");
-        a.src = a.src.replace("img/play.png", "img/pause.png");
+        let sp = document.getElementById("start-stop");
+        sp.src = sp.src.replace("img/play.png", "img/pause.png");
 
+        let fr = document.getElementById("flag-reset");
+        fr.src = fr.src.replace("img/reset.png", "img/flag.png");
         tickStopWatch("play");
-
+        curFunc = "flag";
         //setTimeout(tickStopWatch("play"), 100);
     }
     else if (curMode == "pause") {
-        console.log("ПАУЗА ЖЕ!")
+        //console.log("ПАУЗА ЖЕ!")
+        let sp = document.getElementById("start-stop");
+        sp.src = sp.src.replace("img/pause.png", "img/play.png");
 
-        let a = document.getElementById("start-stop");
-        a.src = a.src.replace("img/pause.png", "img/play.png");
+        let fr = document.getElementById("flag-reset");
+        fr.src = fr.src.replace("img/flag.png", "img/reset.png");
+        curFunc = "reset";
 
         tickStopWatch("pause");
 
@@ -165,7 +166,43 @@ function modeStopWatch(change) {
 }
 
 
+var curFunc = "";
+document.getElementById('flag-reset').addEventListener('click', setFlag);
 
+function setFlag() {
+    if (curFunc == "reset") {
+        document.getElementById('flag-reset').className = "hiden";
+
+        let fr = document.getElementById("flag-reset");
+        fr.src = fr.src.replace("img/reset.png", "img/flag.png");
+
+        minutes = 0;
+        seconds = 0;
+        milliseconds = 0;
+        tickStopWatch("pause");
+    }
+    else if (curFunc == "flag") {
+        document.querySelector('.flags').className = "flags";
+        let time = [minutes, seconds, milliseconds];
+
+        let lineFlags = [time[0], time[1], time[2]].join(':');
+        //let lineFlags =
+
+
+        // var logElem = document.querySelector(".flags");
+        //logElem.innerHTML += timeStr
+
+
+        let line = document.querySelector('.flags');
+        line.innerHTML += lineFlags;
+    }
+
+
+    // var images = document.getElementsByTagName('img');
+    // if (images.getAttribute('src') === 'flag.png') {
+    //     alert("флажок")
+    // }
+}
 
 // document.querySelector('.headerEl').addEventListener('click', chooseTab);
 

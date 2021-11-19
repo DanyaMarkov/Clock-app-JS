@@ -224,6 +224,7 @@ div.footer__functions:hover {
 }
 
 .stopwatch-buttons {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -239,22 +240,27 @@ div.footer__functions:hover {
 }
 
 .stopwatch-buttons #flag-reset {
-  margin-top: 10px;
+  margin-top: 20px;
   background-color: rgba(255, 255, 255, 0.6);
   color: black;
+  padding: 10px;
   border-radius: 30px;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 }
 
 .stopwatch-buttons #flag-reset img {
-  max-width: 30px;
-  display: block;
-  margin: 9px auto;
+  width: 20px;
+  height: 20px;
+}
+
+.stopwatch-buttons #flag-reset:hover {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .stopwatch-buttons #start-stop {
-  margin-top: 10px;
+  cursor: pointer;
+  margin-top: 20px;
   background-color: rgba(255, 255, 255, 0.6);
   color: black;
   border-radius: 30px;
@@ -264,6 +270,10 @@ div.footer__functions:hover {
 
 .stopwatch-buttons #start-stop img {
   max-width: 50px;
+}
+
+.stopwatch-buttons #start-stop:hover {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .hiden {
@@ -314,5 +324,20 @@ div.footer__functions:hover {
   background-color: whitesmoke;
   color: black;
   font-size: 35px;
+}
+
+.flags {
+  height: 200px;
+  /* высота нашего блока */
+  width: 400px;
+  /* ширина нашего блока */
+  background: #fff;
+  /* цвет фона, белый */
+  border: 1px solid #c1c1c1;
+  /* размер и цвет границы блока */
+  font-size: 18px;
+  overflow-y: scroll;
+  /* прокрутка по вертикали */
+  margin: 10px;
 }
 /*# sourceMappingURL=style.css.map */
