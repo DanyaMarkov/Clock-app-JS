@@ -96,6 +96,8 @@ div.header__body:hover .header__functions {
     //position: absolute;
     &__body {
         position: absolute;
+        align-items: center;
+        margin: 0px auto;
         // display: flex;
         // flex-direction: row;
 
@@ -116,7 +118,8 @@ div.header__body:hover .header__functions {
         justify-content: space-around;
 
         img {
-            max-width: 200px;
+            max-width: 50px;
+            min-width: 50px;
         }
     }
 
@@ -153,7 +156,7 @@ div.header__body:hover .header__functions {
 // }
 
 div.footer__functions:hover {
-    bottom: 230px;
+    bottom: 90px;
 }
 
 .footerEl {
@@ -166,16 +169,6 @@ div.footer__functions:hover {
     cursor: pointer;
     bottom: 230px;
 }
-
-// .footer__functions:hover {
-//     .footerEl {
-//         background-color: rgb(82, 16, 126);
-//         cursor: pointer;
-//         bottom: 230px;
-//     }
-// }
-
-// Мейн часть
 
 .main {
     &__body {
@@ -268,6 +261,18 @@ div.footer__functions:hover {
     display: none;
 }
 
+.flags {
+    height: 200px; /* высота нашего блока */
+    width: 200px; /* ширина нашего блока */
+    background: #fff; /* цвет фона, белый */
+    border: 1px solid #c1c1c1; /* размер и цвет границы блока */
+    font-size: 18px;
+    border-radius: 20px;
+    // overflow-x: scroll; /* прокрутка по горизонтали */
+    overflow-y: scroll; /* прокрутка по вертикали */
+    margin: 10px;
+}
+
 .intro {
     max-height: 100vh;
     overflow: hidden;
@@ -314,17 +319,3 @@ div.footer__functions:hover {
     color: black;
     font-size: 35px;
 }
-
-.flags {
-    height: 200px; /* высота нашего блока */
-    width: 400px; /* ширина нашего блока */
-    background: #fff; /* цвет фона, белый */
-    border: 1px solid #c1c1c1; /* размер и цвет границы блока */
-    font-size: 18px;
-    // overflow-x: scroll; /* прокрутка по горизонтали */
-    overflow-y: scroll; /* прокрутка по вертикали */
-    margin: 10px;
-}
-// &__body {
-//     margin-top: 10%;
-// }

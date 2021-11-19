@@ -254,10 +254,26 @@ function chooseTimer() {
 document.querySelector('.footerEl').addEventListener('click', changeVideo);
 
 
-function changeVideo() {
-    document.querySelector('.footer__clock').className = 'footer__clock footerEl ativeTab';
+function changeVideo(type) {
+    //document.querySelector('.footerEl').className = 'footerEl';
+
+    console.log("сменил")
+
     let video = document.querySelector('.video__media');
-    video.setAttribute("src", "video/" + "night.mp4");
+    if (type == "ночь") {
+        video.setAttribute("src", "video/" + "night.mp4");
+    }
+    else if (type == "спорт") {
+        video.setAttribute("src", "video/" + "sport.mp4");
+    }
+    else if (type == "лес") {
+        video.setAttribute("src", "video/" + "forest.mp4");
+    }
+    else if (type == "праздник") {
+        video.setAttribute("src", "video/" + "newyear.mp4");
+    }
+
+
 }
 
 
