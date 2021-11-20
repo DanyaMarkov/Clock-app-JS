@@ -208,6 +208,7 @@ function setFlag() {
     }
 }
 
+
 // TO DO - ИСПРАВИТЬ кошмар СНИЗУ
 document.querySelector('.header__clock').addEventListener('click', chooseClock);
 
@@ -216,7 +217,6 @@ function chooseClock() {
     document.querySelector('.header__clock').className = 'header__clock headerEl activeTab';
     document.querySelector('.header__stopwatch ').className = 'header__stopwatch headerEl';
     document.querySelector('.header__timer').className = 'header__timer headerEl';
-    //alert(this);
 
     document.querySelector('.main__clock').className = 'main__clock';
     document.querySelector('.main__stopwatch').className = 'main__stopwatch hiden';
